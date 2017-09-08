@@ -1,6 +1,6 @@
 # baffle-react
-[![CircleCI](https://img.shields.io/circleci/project/github/kedromelon/baffle-react.svg?style=flat-square)]()
-[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)]()
+[![CircleCI](https://img.shields.io/circleci/project/github/kedromelon/baffle-react.svg?style=flat-square)](https://circleci.com/gh/kedromelon/baffle-react/)
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://prettier.io/)
 
 > [Baffle](https://camwiegert.github.io/baffle/) as a React component
 
