@@ -1,16 +1,19 @@
 # baffle-react
+[![CircleCI](https://img.shields.io/circleci/project/github/kedromelon/baffle-react.svg?style=flat-square)]()
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)]()
 
-[![Travis][build-badge]][build]
-[![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+> [Baffle](https://camwiegert.github.io/baffle/) as a React component
 
-Describe baffle-react here.
+_i haven't published this yet but once i have you can do the following_
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
-[build]: https://travis-ci.org/user/repo
+### install
 
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+##### via npm
+```sh
+npm install --save baffle-react
+```
 
-[coveralls-badge]: https://img.shields.io/coveralls/user/repo/master.png?style=flat-square
-[coveralls]: https://coveralls.io/github/user/repo
+##### via yarn
+```sh
+yarn add baffle-react
+```
