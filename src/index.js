@@ -10,7 +10,9 @@ class Baffle extends Component {
     exclude: PropTypes.array,
     speed: PropTypes.number,
     obfuscate: PropTypes.bool,
-    update: PropTypes.bool
+    update: PropTypes.bool,
+    revealSpeed: PropTypes.number,
+    revealDelay: PropTypes.number
   };
 
   static defaultProps = {
@@ -19,21 +21,37 @@ class Baffle extends Component {
     exclude: [" "],
     speed: 50,
     obfuscate: true,
-    update: true
+    update: true,
+    revealSpeed: 1000,
+    revealDelay: 0
   };
 
   componentDidMount() {
-    const { characters, exclude, speed } = this.props;
+    const {
+      update,
+      obfuscate,
+      characters,
+      exclude,
+      speed,
+      revealSpeed,
+      revealDelay
+    } = this.props;
 
     const options = pickBy(
       { characters, exclude, speed },
       value => value !== undefined
     );
 
-    console.log(options);
-
     this.baffle = baffle(this.span, options);
-    this.baffle.start(); // TODO need to deal w non-option props
+
+    if (update && obfuscate) {
+      this.baffle.start();
+    } else if (!update && obfuscate) {
+      this.baffle.once();
+    } else if (update && !obfuscate) {
+      this.baffle.start();
+      this.baffle.reveal(revealSpeed, revealDelay);
+    }
   }
 
   componentWillUnmount() {
@@ -48,24 +66,10 @@ class Baffle extends Component {
       exclude,
       speed,
       obfuscate,
-      update
+      update,
+      revealSpeed,
+      revealDelay
     } = this.props;
-
-    if (update && (!prevProps.update || (obfuscate && !prevProps.obfuscate))) {
-      this.baffle.start();
-    } else if (!update && prevProps.update) {
-      this.baffle.stop();
-    }
-
-    if (!obfuscate && prevProps.obfuscate) {
-      this.baffle.reveal(); // TODO implement reveal speed and delay
-    } else if (obfuscate && !prevProps.obfuscate && !update) {
-      this.baffle.once();
-    }
-
-    if (children !== prevProps.children) {
-      this.baffle.text(() => children);
-    }
 
     const options = pickBy(
       { characters, exclude, speed },
@@ -73,6 +77,31 @@ class Baffle extends Component {
     );
 
     this.baffle.set(options);
+
+    if (
+      (update && !prevProps.update && obfuscate) ||
+      (obfuscate && !prevProps.obfuscate && update)
+    ) {
+      this.baffle.start();
+    } else if (!update && prevProps.update) {
+      this.baffle.stop();
+    }
+
+    if (!obfuscate && prevProps.obfuscate) {
+      if (!update) {
+        this.baffle.reveal();
+      } else {
+        this.baffle.reveal(revealSpeed, revealDelay);
+      }
+    }
+
+    if (obfuscate && !prevProps.obfuscate && !update) {
+      this.baffle.once();
+    }
+
+    if (children !== prevProps.children) {
+      this.baffle.text(() => children);
+    }
   }
 
   render() {

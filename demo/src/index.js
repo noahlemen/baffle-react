@@ -1,19 +1,19 @@
-import React from "react";
+import React, { Component } from "react";
 import { render } from "react-dom";
 
-import Component from "../../src";
+import Baffle from "../../src";
 
-let Demo = React.createClass({
+class Demo extends Component {
   render() {
     return (
       <div>
         <h1>baffle-react Demo</h1>
-        <Component speed={0} characters={"!ab-"}>
+        <Baffle speed={50} characters={"!ab-"} obfuscate update={false}>
           foofoofoofoofoo
-        </Component>
+        </Baffle>
       </div>
     );
   }
-});
+}
 
 render(<Demo />, document.querySelector("#demo"));
