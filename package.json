@@ -1,6 +1,6 @@
 {
   "name": "baffle-react",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Text obfuscation via Baffle, as a React component",
   "main": "lib/index.js",
   "module": "es/index.js",
