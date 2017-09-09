@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import baffle from "baffle";
+import baffle from "./baffle";
 import pickBy from "lodash/pickBy";
 
 class Baffle extends Component {
@@ -52,10 +52,6 @@ class Baffle extends Component {
       this.baffle.start();
       this.baffle.reveal(revealSpeed, revealDelay);
     }
-  }
-
-  componentWillUnmount() {
-    this.baffle.stop();
   }
 
   // TODO: clean up this function, it's gross

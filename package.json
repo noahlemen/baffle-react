@@ -1,6 +1,6 @@
 {
   "name": "baffle-react",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "baffle-react React component",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -39,7 +39,9 @@
     "nwb": "0.15.x",
     "prettier": "^1.6.1",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-test-renderer": "^15.6.1",
+    "sinon": "^3.2.1"
   },
   "author": "",
   "homepage": "",
