@@ -1,10 +1,10 @@
 {
   "name": "baffle-react",
-  "version": "0.0.1",
-  "description": "baffle-react React component",
+  "version": "0.0.0",
+  "description": "Text obfuscation via Baffle, as a React component",
   "main": "lib/index.js",
   "module": "es/index.js",
-  "files": ["css", "es", "lib", "umd"],
+  "files": ["es", "lib"],
   "scripts": {
     "build": "nwb build-react-component",
     "clean": "nwb clean-module && npm clean-demo",
@@ -43,9 +43,12 @@
     "react-test-renderer": "^15.6.1",
     "sinon": "^3.2.1"
   },
-  "author": "",
-  "homepage": "",
+  "author": "Noah Lemen <noah.lemen@gmail.com>",
+  "homepage": "https://github.com/kedromelon/baffle-react#readme",
   "license": "MIT",
-  "repository": "",
-  "keywords": ["react-component"]
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kedromelon/baffle-react.git"
+  },
+  "keywords": ["react-component", "text", "obfuscate", "effect", "animate"]
 }
