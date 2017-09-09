@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import baffle from "./baffle";
 import pickBy from "lodash/pickBy";
 
-class Baffle extends Component {
+export default class Baffle extends Component {
   static propTypes = {
     children: PropTypes.string,
     characters: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
@@ -11,7 +11,7 @@ class Baffle extends Component {
     speed: PropTypes.number,
     obfuscate: PropTypes.bool,
     update: PropTypes.bool,
-    revealSpeed: PropTypes.number,
+    revealDuration: PropTypes.number,
     revealDelay: PropTypes.number
   };
 
@@ -22,7 +22,7 @@ class Baffle extends Component {
     speed: 50,
     obfuscate: true,
     update: true,
-    revealSpeed: 1000,
+    revealDuration: 1000,
     revealDelay: 0
   };
 
@@ -33,7 +33,7 @@ class Baffle extends Component {
       characters,
       exclude,
       speed,
-      revealSpeed,
+      revealDuration,
       revealDelay
     } = this.props;
 
@@ -50,7 +50,7 @@ class Baffle extends Component {
       this.baffle.once();
     } else if (update && !obfuscate) {
       this.baffle.start();
-      this.baffle.reveal(revealSpeed, revealDelay);
+      this.baffle.reveal(revealDuration, revealDelay);
     }
   }
 
@@ -63,7 +63,7 @@ class Baffle extends Component {
       speed,
       obfuscate,
       update,
-      revealSpeed,
+      revealDuration,
       revealDelay
     } = this.props;
 
@@ -87,7 +87,7 @@ class Baffle extends Component {
       if (!update) {
         this.baffle.reveal();
       } else {
-        this.baffle.reveal(revealSpeed, revealDelay);
+        this.baffle.reveal(revealDuration, revealDelay);
       }
     }
 
@@ -105,5 +105,3 @@ class Baffle extends Component {
     return <span ref={span => (this.span = span)}>{children}</span>;
   }
 }
-
-export default Baffle;
